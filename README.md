@@ -100,6 +100,6 @@ Here are the most popular questions asked at interviews of front-end developers 
     </li>
   </ul>
   <img src='https://cdn-images-1.medium.com/max/1600/1*cPwvUhZrnB1dtZnjBEfXfA.png' />
-  <p><i>Источник: <a href ="https://reactjs.org/docs/react-component.html#render">reactjs.org</a></i></p>
+  <p><i>Source: <a href ="https://reactjs.org/docs/react-component.html#render">reactjs.org</a></i></p>
 </div>
 </details>
