@@ -12,7 +12,7 @@ Here are the most popular questions asked at interviews of front-end developers 
       <b>«number»</b> - The number type represents both integer and floating point numbers.
     </li>
     <li>
-      <b>«BigInt»</b<> - BigInt type was recently added to the language to represent integers of arbitrary length.
+      <b>«BigInt»</b> - BigInt type was recently added to the language to represent integers of arbitrary length.
     </li>
     <li>
       <b>«string»</b> - A string in JavaScript must be surrounded by quotes.
