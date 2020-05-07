@@ -103,3 +103,71 @@ Here are the most popular questions asked at interviews of front-end developers 
   <p><i>Source: <a href ="https://reactjs.org/docs/react-component.html#render">reactjs.org</a></i></p>
 </div>
 </details>
+
+<details>
+<summary>What is Context in React?</summary>
+<div>
+  <br />
+  <p>Context is designed to share data that can be considered “global” for a tree of React components, such as the current authenticated user, theme, or preferred language.</p>
+  <p>Using context, we can avoid passing props through intermediate elements:
+    
+    // Context lets us pass a value deep into the component tree
+    // without explicitly threading it through every component.
+    // Create a context for the current theme (with "light" as the default).
+    const ThemeContext = React.createContext('light');
+
+    class App extends React.Component {
+      render() {
+        // Use a Provider to pass the current theme to the tree below.
+        // Any component can read it, no matter how deep it is.
+        // In this example, we're passing "dark" as the current value.
+        return (
+          <ThemeContext.Provider value="dark">
+            <Toolbar />
+          </ThemeContext.Provider>
+        );
+      }
+    }
+
+    // A component in the middle doesn't have to
+    // pass the theme down explicitly anymore.
+    function Toolbar() {
+      return (
+        <div>
+          <ThemedButton />
+        </div>
+      );
+    }
+
+    class ThemedButton extends React.Component {
+      // Assign a contextType to read the current theme context.
+      // React will find the closest theme Provider above and use its value.
+      // In this example, the current theme is "dark".
+      static contextType = ThemeContext;
+      render() {
+        return <Button theme={this.context} />;
+      }
+    }
+  </p>
+  <p>Context is primarily used when some data needs to be accessible by many components at different nesting levels. Apply it sparingly because it makes component reuse more difficult.</p>
+  <ul>
+    <b>API:</b>
+    <li>
+      <b>React.createContext</b> - creates a Context object. When React renders a component that subscribes to this Context object it will read the current context value from the closest matching Provider above it in the tree.
+    </li>
+    <li>
+      <b>Context.Provider</b> - every Context object comes with a Provider React component that allows consuming components to subscribe to context changes.
+    </li>
+    <li>
+      <b>Class.contextType</b> - the contextType property on a class can be assigned a Context object created by React.createContext(). This lets you consume the nearest current value of that Context type using this.context. You can reference this in any of the lifecycle methods including the render function.
+    </li>
+    <li>
+      <b>Context.Consumer</b> - a React component that subscribes to context changes. This lets you subscribe to a context within a function component. Requires a function as a child. The function receives the current context value and returns a React node. The value argument passed to the function will be equal to the value prop of the closest Provider for this context above in the tree. If there is no Provider for this context above, the value argument will be equal to the defaultValue that was passed to createContext().
+    </li>
+    <li>
+      <b>Context.displayName</b> - Context object accepts a displayName string property. React DevTools uses this string to determine what to display for the context.
+    </li>
+  </ul>
+  <p><i>Source: <a href ="https://reactjs.org/docs/context.html">reactjs.org</a></i></p>
+</div>
+</details>
