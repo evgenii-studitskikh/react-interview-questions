@@ -37,6 +37,55 @@ Here are the most popular questions asked at interviews of front-end developers 
 </div>
 </details>
 
+<details>
+<summary>Whats is event loop in JavaScript and how it works?</summary>
+<div>
+  <p>JavaScript has a concurrency model based on an event loop, which is responsible for executing the code, collecting and processing events, and executing queued sub-tasks. This model is quite different from models in other languages like C and Java.</p>
+  <img src="https://mdn.mozillademos.org/files/17124/The_Javascript_Runtime_Environment_Example.svg" />
+  <h5>Stack</h5>
+  <p>Function calls form a stack of frames.</p>
+  <p>
+
+    function foo(b) {
+      let a = 10
+      return a + b + 11
+    }
+
+    function bar(x) {
+      let y = 3
+      return foo(x * y)
+    }
+
+    console.log(bar(7)) //returns 42
+  </p>
+  <p>
+    When calling bar, a first frame is created containing bar's arguments and local variables. When bar calls foo, a second frame is created and pushed on top of the first one containing foo's arguments and local variables. When foo returns, the top frame element is popped out of the stack (leaving only bar's call frame). When bar returns, the stack is empty.
+  </p>
+  <h5>Heap</h5>
+  <p>
+    Objects are allocated in a heap which is just a name to denote a large (mostly unstructured) region of memory.
+  </p>
+  <h5>Queue</h5>
+  <p>
+    A JavaScript runtime uses a message queue, which is a list of messages to be processed. Each message has an associated function which gets called in order to handle the message. The processing of functions continues until the stack is once again empty. Then, the event loop will process the next message in the queue (if there is one).
+  </p>
+  <h5>Event loop</h5>
+  <p>
+    The event loop got its name because of how it's usually implemented, which usually resembles:
+  </p>
+  <p>
+
+    while (queue.waitForMessage()) {
+      queue.processNextMessage()
+    }
+  </p>
+  <p>
+    queue.waitForMessage() waits synchronously for a message to arrive (if one is not already available and waiting to be handled).
+  </p>
+  <p><i>Source: <a href ="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop">MDN web docs</a></i></p>
+</div>
+</details>
+
 <br/>
 
 **React**:
