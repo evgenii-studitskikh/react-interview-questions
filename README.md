@@ -220,3 +220,16 @@ Here are the most popular questions asked at interviews of front-end developers 
   <p><i>Source: <a href ="https://reactjs.org/docs/context.html">reactjs.org</a></i></p>
 </div>
 </details>
+
+<details>
+<summary>What is the Virtual DOM?</summary>
+<div>
+  <p>
+    The virtual DOM (VDOM) is a programming concept where an ideal, or “virtual”, representation of a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. This process is called reconciliation.
+  </p>
+  <p>
+    In React world, the term “virtual DOM” is usually associated with React elements since they are the objects representing the user interface. React, however, also uses internal objects called “fibers” to hold additional information about the component tree. They may also be considered a part of “virtual DOM” implementation in React.
+  </p>
+  <p><i>Source: <a href ="https://reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom">reactjs.org</a></i></p>
+</div>
+</details>
