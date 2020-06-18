@@ -233,3 +233,20 @@ Here are the most popular questions asked at interviews of front-end developers 
   <p><i>Source: <a href ="https://reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom">reactjs.org</a></i></p>
 </div>
 </details>
+
+<details>
+<summary>Why do you need the key attribute when rendering lists?</summary>
+<div>
+  <br/>
+  <p>
+    Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity
+  </p>
+  <p>
+    The best way to pick a key is to use a string that uniquely identifies a list item among its siblings. Most often you would use IDs from your data as keys
+  </p>
+  <p>
+    When you don’t have stable IDs for rendered items, you may use the item index as a key as a last resort. We don’t recommend using indexes for keys if the order of items may change. This can negatively impact performance and may cause issues with component state.
+  </p>
+  <p><i>Source: <a href ="https://reactjs.org/docs/lists-and-keys.html#keys">reactjs.org</a></i></p>
+</div>
+</details>
