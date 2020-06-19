@@ -7,6 +7,7 @@ Here are the most popular questions asked at interviews of front-end developers 
 <details>
 <summary>What types of data exist in JavaScript?</summary>
 <div>
+  <br/>
   <ul>
     <li>
       <b>«number»</b> - The number type represents both integer and floating point numbers.
@@ -40,6 +41,7 @@ Here are the most popular questions asked at interviews of front-end developers 
 <details>
 <summary>Whats is event loop in JavaScript and how it works?</summary>
 <div>
+  <br/>
   <p>JavaScript has a concurrency model based on an event loop, which is responsible for executing the code, collecting and processing events, and executing queued sub-tasks. This model is quite different from models in other languages like C and Java.</p>
   <img src="https://mdn.mozillademos.org/files/17124/The_Javascript_Runtime_Environment_Example.svg" />
   <h5>Stack</h5>
@@ -86,6 +88,69 @@ Here are the most popular questions asked at interviews of front-end developers 
 </div>
 </details>
 
+<details>
+<summary>What is closure in JavaScript?</summary>
+<div>
+  <br/>
+  <p>
+    A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function’s scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.
+  </p>
+  <p>Every closure has three scopes:</p>
+  <ul>
+    <li>Local Scope (Own scope)</li>
+    <li>Outer Functions Scope</li>
+    <li>Global Scope</li>
+  </ul>
+  <p>
+    A common mistake is not realizing that, in the case where the outer function is itself a nested function, access to the outer function's scope includes the enclosing scope of the outer function—effectively creating a chain of function scopes. To demonstrate, consider the following example code.
+  </p>
+  <p>
+
+    // global scope
+    var e = 10;
+    function sum(a){
+      return function(b){
+        return function(c){
+          // outer functions scope
+          return function(d){
+            // local scope
+            return a + b + c + d + e;
+          }
+        }
+      }
+    }
+
+    console.log(sum(1)(2)(3)(4)); // log 20
+
+    // You can also write without anonymous functions:
+
+    // global scope
+    var e = 10;
+    function sum(a){
+      return function sum2(b){
+        return function sum3(c){
+          // outer functions scope
+          return function sum4(d){
+            // local scope
+            return a + b + c + d + e;
+          }
+        }
+      }
+    }
+
+    var s = sum(1);
+    var s1 = s(2);
+    var s2 = s1(3);
+    var s3 = s2(4);
+    console.log(s3) //log 20
+  </p>
+  <p>
+    In the example above, there's a series of nested functions, all of which have access to the outer functions' scope. In this context, we can say that closures have access to all outer function scopes.
+  </p>
+  <p><i>Source: <a href ="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures">MDN web docs</a></i></p>
+</div>
+</details>
+
 <br/>
 
 **React**:
@@ -93,6 +158,7 @@ Here are the most popular questions asked at interviews of front-end developers 
 <details>
 <summary>What component life cycle methods exist in React?</summary>
 <div>
+  <br/>
   <ul>
      <li>
        <b>render()</b> — The render() method is the only required method in a class component.
@@ -224,6 +290,7 @@ Here are the most popular questions asked at interviews of front-end developers 
 <details>
 <summary>What is the Virtual DOM?</summary>
 <div>
+  <br/>
   <p>
     The virtual DOM (VDOM) is a programming concept where an ideal, or “virtual”, representation of a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. This process is called reconciliation.
   </p>
