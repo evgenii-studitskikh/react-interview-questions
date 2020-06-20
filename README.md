@@ -317,3 +317,45 @@ Here are the most popular questions asked at interviews of front-end developers 
   <p><i>Source: <a href ="https://reactjs.org/docs/lists-and-keys.html#keys">reactjs.org</a></i></p>
 </div>
 </details>
+
+<details>
+<summary>How does "children" prop work?</summary>
+<div>
+  <br/>
+  <p>
+    Some components don’t know their children ahead of time. This is especially common for components like Sidebar or Dialog that represent generic “boxes”. We recommend that such components use the special children prop to pass children elements directly into their output:
+  </p>
+  <p>
+
+      function FancyBorder(props) {
+        return (
+          <div className={'FancyBorder FancyBorder-' + props.color}>
+            {props.children}
+          </div>
+        );
+      }
+  </p>
+  <p>
+    This lets other components pass arbitrary children to them by nesting the JSX:
+  </p>
+  <p>
+
+      function WelcomeDialog() {
+        return (
+          <FancyBorder color="blue">
+            <h1 className="Dialog-title">
+              Welcome
+            </h1>
+            <p className="Dialog-message">
+              Thank you for visiting our spacecraft!
+            </p>
+          </FancyBorder>
+        );
+      }
+  </p>
+  <p>
+    Anything inside the <FancyBorder> JSX tag gets passed into the FancyBorder component as a children prop. Since FancyBorder renders {props.children} inside a div, the passed elements appear in the final output.
+  </p>
+  <p><i>Source: <a href ="https://reactjs.org/docs/composition-vs-inheritance.html#containment">reactjs.org</a></i></p>
+</div>
+</details>
