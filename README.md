@@ -359,3 +359,27 @@ Here are the most popular questions asked at interviews of front-end developers 
   <p><i>Source: <a href ="https://reactjs.org/docs/composition-vs-inheritance.html#containment">reactjs.org</a></i></p>
 </div>
 </details>
+
+
+<details>
+<summary>What is the difference between controlled and uncontrolled components?</summary>
+<div>
+  <br/>
+  <p>
+    In HTML, form elements such as input, textarea, and select typically maintain their own state and update it based on user input. In React, mutable state is typically kept in the state property of components, and only updated with setState().
+  </p>
+  <p>
+    We can combine the two by making the React state be the “single source of truth”. Then the React component that renders a form also controls what happens in that form on subsequent user input. An input form element whose value is controlled by React in this way is called a <b>“controlled component”</b>.
+  </p>
+  <p>
+    To write an <b>uncontrolled component</b>, instead of writing an event handler for every state update, you can use a ref to get form values from the DOM.
+  </p>
+  <p>
+    Since an uncontrolled component keeps the source of truth in the DOM, it is sometimes easier to integrate React and non-React code when using uncontrolled components. It can also be slightly less code if you want to be quick and dirty. Otherwise, you should usually use controlled components.
+  </p>
+  <p><i>Source: 
+    <a href ="https://reactjs.org/docs/forms.html#controlled-components">reactjs.org</a>,
+    <a href ="https://reactjs.org/docs/uncontrolled-components.html">reactjs.org</a>
+  </i></p>
+</div>
+</details>
