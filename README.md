@@ -151,6 +151,54 @@ Here are the most popular questions asked at interviews of front-end developers 
 </div>
 </details>
 
+<details>
+<summary>How does the “this” keyword work?</summary>
+<div>
+  <br/>
+  <p>
+    A function's this keyword behaves a little differently in JavaScript compared to other languages. It also has some differences between strict mode and non-strict mode.
+  </p>
+  <ul>
+    <li>
+      <b>Global context:</b> In the global execution context (outside of any function), this refers to the global object whether in strict mode or not.
+    </li>
+    <li>
+      <b>Function context:</b> Inside a function, the value of this depends on how the function is called.
+      <p>Since the following code is not in strict mode, and because the value of this is not set by the call, this will default to the global object, which is window in a browser. 
+        
+        function f1() {
+          return this;
+        }
+
+        // In a browser:
+        f1() === window; // true
+
+        // In Node:
+        f1() === globalThis; // true
+
+   </p>
+      <p>
+        In strict mode, however, if the value of this is not set when entering an execution context, it remains as undefined.
+  
+        function f2() {
+          'use strict'; // see strict mode
+          return this;
+        }
+
+        f2() === undefined; // true
+   </p>
+    </li>
+    <li>
+      <b>Class context:</b> The behavior of this in classes and functions is similar, since classes are functions under the hood. But there are some differences and caveats. Within a class constructor, this is a regular object. All non-static methods within the class are added to the prototype of this.
+    </li>
+    <li>
+      <b>Derived classes:</b> Unlike base class constructors, derived constructors have no initial this binding. Calling  super() creates a this binding within the constructor and essentially has the effect of evaluating the following line of code, where Base is the inherited class. Derived classes must not return before calling super(), unless they return an Object or have no constructor at all. Referring to this before calling super() will throw an error.
+    </li>
+  </ul>
+  <p><i>Source: <a href ="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">MDN web docs</a></i></p>
+</div>
+</details>
+
 <br/>
 
 **React**:
