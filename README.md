@@ -199,6 +199,56 @@ Here are the most popular questions asked at interviews of front-end developers 
 </div>
 </details>
 
+<details>
+<summary>What are promises in JavaScript?</summary>
+<div>
+  <br/>
+  <p>
+    The Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value.
+  </p>
+  <p>
+    A Promise is in one of these states:
+  </p>
+  <ul>
+    <li>
+      <i>pending:</i> initial state, neither fulfilled nor rejected.
+    </li>
+    <li>
+      <i>fulfilled:</i> meaning that the operation completed successfully.
+    </li>
+    <li>
+      <i>rejected:</i> meaning that the operation failed.
+    </li>
+  </ul>
+  <p>
+    A pending promise can either be fulfilled with a value, or rejected with a reason (error). When either of these options happens, the associated handlers queued up by a promise's then method are called.
+  </p>
+  <p>
+    As the Promise.prototype.then() and Promise.prototype.catch() methods return promises, they can be chained.
+  </p>
+  <img src="https://mdn.mozillademos.org/files/15911/promises.png"/>
+  <p>
+    The methods promise.then(), promise.catch(), and promise.finally() are used to associate further action with a promise that becomes settled. These methods also return a newly generated promise object, which can optionally be used for chaining; for example, like this:
+
+    const myPromise = 
+      (new Promise(myExecutorFunc))
+      .then(handleFulfilledA,handleRejectedA)
+      .then(handleFulfilledB,handleRejectedB)
+      .then(handleFulfilledC,handleRejectedC);
+
+    // or, perhaps better ...
+
+    const myPromise =
+      (new Promise(myExecutorFunc))
+      .then(handleFulfilledA)
+      .then(handleFulfilledB)
+      .then(handleFulfilledC)
+      .catch(handleRejectedAny);
+  </p>
+  <p><i>Source: <a href ="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">MDN web docs</a></i></p>
+</div>
+</details>
+
 <br/>
 
 **React**:
