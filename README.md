@@ -500,3 +500,40 @@ Here are the most popular questions asked at interviews of front-end developers 
   </i></p>
 </div>
 </details>
+
+<br/>
+
+**Web technologies**:
+
+<details>
+<summary>What is HTTP?</summary>
+<div>
+  <br/>
+  <p>
+    HTTP is a protocol which allows the fetching of resources, such as HTML documents. It is the foundation of any data exchange on the Web and it is a client-server protocol, which means requests are initiated by the recipient, usually the Web browser. A complete document is reconstructed from the different sub-documents fetched, for instance text, layout description, images, videos, scripts, and more.
+  </p>
+  <img src="https://mdn.mozillademos.org/files/13677/Fetching_a_page.png"/>
+  <p>
+    Here is a list of common features controllable with HTTP:
+  </p>
+  <ul>
+    <li>
+      <b>Caching</b> - How documents are cached can be controlled by HTTP. The server can instruct proxies and clients, about what to cache and for how long. The client can instruct intermediate cache proxies to ignore the stored document.
+Relaxing the origin constraint
+    </li>
+    <li>
+      <b>Relaxing the origin constraint</b> - To prevent snooping and other privacy invasions, Web browsers enforce strict separation between Web sites. Only pages from the same origin can access all the information of a Web page. Though such constraint is a burden to the server, HTTP headers can relax this strict separation on the server side, allowing a document to become a patchwork of information sourced from different domains; there could even be security-related reasons to do so.
+    </li>
+    <li>
+      <b>Authentication</b> - Some pages may be protected so that only specific users can access them. Basic authentication may be provided by HTTP, either using the WWW-Authenticate and similar headers, or by setting a specific session using HTTP cookies.
+    </li>
+    <li>
+      <b>Proxy and tunneling</b> - Servers or clients are often located on intranets and hide their true IP address from other computers. HTTP requests then go through proxies to cross this network barrier. Not all proxies are HTTP proxies. The SOCKS protocol, for example, operates at a lower level. Other protocols, like ftp, can be handled by these proxies.
+    </li>
+    <li>
+      <b>Sessions</b> - Using HTTP cookies allows you to link requests with the state of the server. This creates sessions, despite basic HTTP being a state-less protocol. This is useful not only for e-commerce shopping baskets, but also for any site allowing user configuration of the output.
+    </li>
+  </ul>
+  <p><i>Source: <a href ="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">MDN web docs</a></i></p>
+</div>
+</details>
