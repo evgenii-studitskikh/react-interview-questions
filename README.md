@@ -522,6 +522,76 @@ Here are the most popular questions asked at interviews of front-end developers 
 </div>
 </details>
 
+<details>
+<summary>What are basic React Hooks?</summary>
+<div>
+  <br/>
+  <p>
+    Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class. Hooks don’t work inside classes. But you can use them instead of writing classes.
+  </p>
+  <p>
+    A Hook is a special function that lets you “hook into” React features. For example, <b>useState</b> is a Hook that lets you add React state to function components:
+    
+    import React, { useState } from 'react';
+
+    function Example() {
+      // Declare a new state variable, which we'll call "count"
+      const [count, setCount] = useState(0);
+
+      return (
+        <div>
+          <p>You clicked {count} times</p>
+          <button onClick={() => setCount(count + 1)}>
+            Click me
+          </button>
+        </div>
+      );
+    }
+  </p>
+  <p>
+    It declares a “state variable”. Our variable is called count but we could call it anything else, like banana. This is a way to “preserve” some values between the function calls — useState is a new way to use the exact same capabilities that this.state provides in a class. Normally, variables “disappear” when the function exits but state variables are preserved by React. The only argument to the useState() Hook is the initial state. Unlike with classes, the state doesn’t have to be an object. We can keep a number or a string if that’s all we need. In our example, we just want a number for how many times the user clicked, so pass 0 as initial state for our variable. (If we wanted to store two different values in state, we would call useState() twice.). It returns a pair of values: the current state and a function that updates it. This is why we write const [count, setCount] = useState().
+  </p>
+  <p>
+  The <b>Effect Hook</b> lets you perform side effects in function components:
+    
+     import React, { useState, useEffect } from 'react';
+
+    function Example() {
+      const [count, setCount] = useState(0);
+
+      // Similar to componentDidMount and componentDidUpdate:
+      useEffect(() => {
+        // Update the document title using the browser API
+        document.title = `You clicked ${count} times`;
+      });
+
+      return (
+        <div>
+          <p>You clicked {count} times</p>
+          <button onClick={() => setCount(count + 1)}>
+            Click me
+          </button>
+        </div>
+      );
+    }
+  </p>
+  <p>
+    By using this Hook, you tell React that your component needs to do something after render. React will remember the function you passed (we’ll refer to it as our “effect”), and call it later after performing the DOM updates. In this effect, we set the document title, but we could also perform data fetching or call some other imperative API. Placing useEffect inside the component lets us access the count state variable (or any props) right from the effect. We don’t need a special API to read it — it’s already in the function scope. Hooks embrace JavaScript closures and avoid introducing React-specific APIs where JavaScript already provides a solution.  By default, it runs both after the first render and after every update. Instead of thinking in terms of “mounting” and “updating”, you might find it easier to think that effects happen “after render”. React guarantees the DOM has been updated by the time it runs the effects.
+  </p>
+  <p>
+    <b>useContext</b>
+
+      const value = useContext(MyContext);
+  </p>
+  <p>
+    Accepts a context object (the value returned from React.createContext) and returns the current context value for that context. The current context value is determined by the value prop of the nearest <MyContext.Provider> above the calling component in the tree. When the nearest <MyContext.Provider> above the component updates, this Hook will trigger a rerender with the latest context value passed to that MyContext provider. Even if an ancestor uses React.memo or shouldComponentUpdate, a rerender will still happen starting at the component itself using useContext.
+  </p>
+  <p><i>Source: 
+    <a href ="https://reactjs.org/docs/hooks-intro.html">reactjs.org</a>
+  </i></p>
+</div>
+</details>
+
 <br/>
 
 **Web technologies**:
